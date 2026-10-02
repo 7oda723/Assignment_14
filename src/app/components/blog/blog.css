@@ -1,0 +1,83 @@
+.animation-1{
+    animation-name: one;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes one{
+    0%{
+        opacity: 0.1;
+    }
+
+    20%{
+        opacity: 0.3;
+    }
+    35%{
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 0.7;
+    }
+
+    70%{
+        opacity: 1;
+    }
+
+    75%{
+        opacity: 0.7;
+    }
+
+    80%{
+        opacity: 0.5;
+    }
+    90%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
+
+.animation-2{
+    animation-name: two;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes two{
+    0%{
+        opacity: 1;
+    }
+
+    20%{
+        opacity: 0.7;
+    }
+    35%{
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 0.3;
+    }
+
+    70%{
+        opacity: 0.1;
+    }
+
+    75%{
+        opacity: 0.3;
+    }
+
+    80%{
+        opacity: 0.5;
+    }
+    90%{
+        opacity: 0.7;
+    }
+    100%{
+        opacity: 1;
+    }
+}

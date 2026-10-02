@@ -1,0 +1,39 @@
+<article class="px-5 md:px-0 pt-6 w-full hover:scale-105 transition-all duration-300">
+    <div class="inner">
+        <figure class="w-full ">
+            <img [src]="image" alt=""
+                class="w-full object-cover h-60 rounded-[20px_20px_0px_0px] ">
+        </figure>
+
+        <div
+            class="bg-[#161616] border-[1px] border-[#272727] rounded-[0px_0px_20px_20px]  px-8 pt-6 pb-6">
+            <div class="flex items-center gap-4">
+                <div class="bg-[#ff6a0029] w-fit px-3 py-1 border-[1px] border-[#ff6a004a] rounded-3xl bg-[#f9741645] ">
+                    <p class="text-[#ff6a00] text-[0.8rem]">{{category}}</p>
+                </div>
+                <span class="text-white opacity-40">{{readTime}}</span>
+            </div>
+
+            <h3 class="text-white text-[1.2rem] font-medium py-4 max-w-[80%]">{{title}}</h3>
+            <p class="text-white opacity-40">{{excerpt}}</p>
+
+            <div class="flex items-center justify-between pt-5">
+                <div class="flex items-center gap-3">
+                    <figure class="w-16">
+                        <img [src]="avatar" alt="" class="w-full rounded-full">
+                    </figure>
+                    <div class="flex flex-col">
+                        <span class="text-white font-medium">{{name}}</span>
+                        <span class="text-white opacity-40">{{date}}</span>
+                    </div>
+                </div>
+
+                <div class="">
+                    <span class="text-[#ff6a00]">اقرا المقال</span>
+                    <i class="fa-solid fa-arrow-left-long pr-1.5" style="color: #ff6a00;"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</article>

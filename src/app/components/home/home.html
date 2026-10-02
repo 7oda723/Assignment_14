@@ -1,0 +1,260 @@
+<main>
+    <section class="pt-21 bg-black relative z-10">
+        <div class="absolute inset-0 z-0
+bg-[linear-gradient(rgba(38,38,38,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(38,38,38,0.5)_1px,transparent_1px)]
+bg-[size:60px_60px]">
+        </div>
+        <app-notice class=" relative z-10">
+            <span class="bg-[#ff6900] w-[7px] h-[7px] rounded-[50%] block animation-1"></span>
+            <span class="bg-[#ff6900] w-[10px] h-[10px] rounded-[50%] block animation-2"></span>
+            <p class="text-white">مرحباً بك في عدسة</p>
+        </app-notice>
+
+        <h1 class="font-medium text-6xl text-center py-6 text-white relative z-10">اكتشف فن <span class="block">التصوير
+                الفوتوغرافي</span></h1>
+        <p class="text-white text-center opacity-80 text-[1.4rem] pt-5 pb-10 relative z-10">انغمس في أسرار المحترفين
+            ونصائح عملية
+            لتطوير مهاراتك في التصوير.</p>
+
+        <div class="container sm:flex sm:m-auto justify-center gap-4 px-4 relative z-10">
+            <button routerLink="/blog"
+                class="bg-[#ff6900] text-white px-10 py-4 rounded-4xl font-medium w-full text-[1.2rem] sm:max-w-fit cursor-pointer">استكشف
+                المقالات</button>
+
+            <button routerLink="/arewe"
+                class="px-12 py-4 rounded-4xl font-medium w-full border-[0.5px] border-amber-50/35 text-[1.2rem] sm:max-w-fit mt-6 sm:mt-0 text-white cursor-pointer"
+                routerLink="/arewe">اعرف المزيد</button>
+        </div>
+
+        <div class="container grid grid-cols-2 md:grid-cols-4 gap-5 mt-12 mx-auto pb-12 px-4 relative z-10">
+            <app-articles>
+
+                <i class="fa-solid fa-receipt mx-auto py-3 text-2xl" style="color: #ff6900"></i>
+                <span class="text-[#fbbf24] text-2xl">+50</span>
+                <p class="text-[#737373] pb-3 text-2xl">مقالة</p>
+            </app-articles>
+
+            <app-articles>
+
+                <i class="fa-solid fa-people-group mx-auto py-3 text-2xl" style="color: #ff6900"></i>
+                <span class="text-[#fbbf24] text-2xl">+10ألف</span>
+                <p class="text-[#737373] pb-3 text-2xl">قارئ</p>
+            </app-articles>
+
+            <app-articles>
+
+                <i class="fa-solid fa-folder-open mx-auto py-3 text-2xl" style="color: #ff6900"></i>
+                <span class="text-[#fbbf24] text-2xl">4</span>
+                <p class="text-[#737373] pb-3 text-2xl">تصنيفات</p>
+            </app-articles>
+
+            <app-articles>
+
+                <i class="fa-solid fa-pen mx-auto py-3 text-2xl" style="color: #ff6a00"></i>
+                <span class="text-[#fbbf24] text-2xl">6</span>
+                <p class="text-[#737373] pb-3 text-2xl">كاتب</p>
+            </app-articles>
+        </div>
+
+    </section>
+
+    <section class="bg-[linear-gradient(95deg,black_80%,#2b1709_100%)] pt-20">
+
+        <div
+            class="xl:mr-18 mr-10 flex items-center gap-1.5  bg-[#ff6a0029] w-fit px-5 py-2 border-[1px] border-[#ff6a004a] rounded-3xl bg-[#f9741645] container">
+            <span class="bg-[#ff6900] w-[7px] h-[7px] rounded-[50%] block animation-1"></span>
+            <span class="bg-[#ff6900] w-[10px] h-[10px] rounded-[50%] block animation-2"></span>
+            <p class="text-white">مميز</p>
+        </div>
+
+        <h1 class="pr-10 xl:pr-0 font-medium text-6xl xl:mr-18 py-6 text-white">مقالات مختارة</h1>
+
+        <div class="container md:max-w-full xl:px-18 md:flex justify-between items-center pr-10">
+            <p class="text-white pb-7 text-2xl opacity-75">محتوى منتقى لبدء رحلة تعلمك</p>
+
+            <button class="bg-[#ff6900] text-white text-[1rem] font-medium px-7 py-2.5 rounded-2xl cursor-pointer ml-10"
+                routerLink="/blog">عرض الكل </button>
+
+        </div>
+
+        <div class="container mx-auto pb-12">
+            <div class="flex flex-col gap-4">
+                @for (items of data.posts.slice(0,3); track $index) {
+                <a [routerLink]="['/blog',items.slug]">
+                    <article class="px-4 pt-6 w-full">
+                        <div class="inner md:flex">
+                            <figure class="w-full md:w-[90%] lg:w-[70%] xl:max-w-[50%]">
+                                <img [src]="items.image" alt=""
+                                    class="w-full object-cover h-105 lg:h-100 rounded-[20px_20px_0px_0px] md:rounded-[0px_20px_20px_0px]">
+                            </figure>
+
+                            <div
+                                class="bg-[#161616] border-[1px] border-[#e4e4e41f] rounded-[0px_0px_20px_20px] md:rounded-[20px_0px_0px_20px] px-8 pt-11 pb-12 h-105 lg:h-100">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="bg-[#ff6a0029] w-fit px-3 py-1 border-[1px] border-[#ff6a004a] rounded-3xl bg-[#f9741645] ">
+                                        <p class="text-[#ff6a00] text-[0.8rem]">{{items.category}}</p>
+                                    </div>
+                                    <span class="text-white opacity-40">{{items.readTime}}</span>
+                                </div>
+
+                                <h3 class="text-white text-3xl py-4">{{items.title}}</h3>
+                                <p class="text-white opacity-40">{{items.excerpt}}</p>
+
+                                <div class="flex items-center justify-between pt-10 md:pt-20">
+                                    <div class="flex items-center gap-3">
+                                        <figure class="w-18 ">
+                                            <img [src]="items.author.avatar" alt="" class="w-full rounded-full">
+                                        </figure>
+                                        <div class="flex flex-col">
+                                            <span class="text-white font-medium">{{items.author.name}}</span>
+                                            <span class="text-white opacity-40">{{items.date}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="">
+                                        <span class="text-[#ff6a00]">اقرا المقال</span>
+                                        <i class="fa-solid fa-arrow-left-long pr-1.5" style="color: #ff6a00;"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#111] pt-9">
+        <app-notice>
+            <span class="bg-[#ff6900] w-[7px] h-[7px] rounded-[50%] block animation-1"></span>
+            <span class="bg-[#ff6900] w-[10px] h-[10px] rounded-[50%] block animation-2"></span>
+            <p class="text-white">التصنيفات</p>
+        </app-notice>
+
+        <h1 class="font-medium text-6xl text-white text-center pt-6"> استكشف حسب الموضوع</h1>
+
+        <p class=" text-white text-center pt-6 opacity-40">اعثر على محتوى مصمم حسب اهتماماتك</p>
+
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 px-4 container mx-auto pb-12">
+            <div>
+                <article routerLink="/blog" [queryParams]="{category: 'إضاءة'}">
+                    <div
+                        class="inner-2 p-8 bg-[#161616cc] border-[1px] border-[#262626] rounded-[20px] hover:scale-105 transition duration-300">
+                        <span class="bg-[#ff6a002a] border-[1px] border-[#ff6a004a] rounded-[12px] p-3.5">
+                            <i class="fa-solid fa-gear text-[#ff6a00]"></i>
+                        </span>
+                        <h3 class="text-white font-medium pb-2 pt-6">إضاءة</h3>
+                        <p class="text-white opacity-40">3 مقالة</p>
+                    </div>
+                </article>
+            </div>
+
+            <div>
+                <article routerLink="/blog" [queryParams]="{category: 'بورتريه'}">
+                    <div
+                        class="inner-2 p-8 bg-[#161616cc] border-[1px] border-[#262626] rounded-[20px] hover:scale-105 transition duration-300">
+                        <span class="bg-[#ff6a002a] border-[1px] border-[#ff6a004a] rounded-[12px] p-3.5">
+                            <i class="fa-solid fa-user text-[19px] text-[#ff6a00]"></i>
+                        </span>
+                        <h3 class="text-white font-medium pb-2 pt-6">بورتريه</h3>
+                        <p class="text-white opacity-40">3 مقالة</p>
+                    </div>
+                </article>
+            </div>
+
+            <div>
+                <article routerLink="/blog" [queryParams]="{category: 'مناظر طبيعية'}">
+                    <div
+                        class="inner-2 p-8 bg-[#161616cc] border-[1px] border-[#262626] rounded-[20px] hover:scale-105 transition duration-300">
+                        <span class="bg-[#ff6a002a] border-[1px] border-[#ff6a004a] rounded-[12px] p-3.5">
+                            <i class="fa-solid fa-mountain-sun text-[#ff6a00]"></i>
+                        </span>
+                        <h3 class="text-white font-medium pb-2 pt-6">مناظر طبيعية</h3>
+                        <p class="text-white opacity-40">2 مقالة </p>
+                    </div>
+                </article>
+            </div>
+
+            <div>
+                <article routerLink="/blog" [queryParams]="{category: 'تقنيات'}">
+                    <div
+                        class="inner-2 p-8 bg-[#161616cc] border-[1px] border-[#262626] rounded-[20px] hover:scale-105 transition duration-300">
+                        <span class="bg-[#ff6a002a] border-[1px] border-[#ff6a004a] rounded-[12px] p-3.5">
+                            <i class="fa-solid fa-sliders text-[#ff6a00]"></i>
+                        </span>
+                        <h3 class="text-white font-medium pb-2 pt-6">تقنيات</h3>
+                        <p class="text-white opacity-40">5 مقالة </p>
+                    </div>
+                </article>
+            </div>
+
+            <div>
+                <article routerLink="/blog" [queryParams]="{category: 'معدات'}">
+                    <div
+                        class="inner-2 p-8 bg-[#161616cc] border-[1px] border-[#262626] rounded-[20px] hover:scale-105 transition duration-300">
+                        <span class="bg-[#ff6a002a] border-[1px] border-[#ff6a004a] rounded-[12px] p-3.5">
+                            <i class="fa-solid fa-gear text-[#ff6a00]"></i>
+                        </span>
+                        <h3 class="text-white font-medium pb-2 pt-6">معدات</h3>
+                        <p class="text-white opacity-40">3 مقالة</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[linear-gradient(265deg,black_80%,#2b1709_100%)] pt-20 pb-11">
+        <div
+            class="xl:mr-18 mr-10 flex items-center gap-1.5  bg-[#ff6a0029] w-fit px-5 py-2 border-[1px] border-[#ff6a004a] rounded-3xl bg-[#f9741645] container">
+            <span class="bg-[#ff6900] w-[7px] h-[7px] rounded-[50%] block animation-1"></span>
+            <span class="bg-[#ff6900] w-[10px] h-[10px] rounded-[50%] block animation-2"></span>
+            <p class="text-white">مميز</p>
+        </div>
+
+        <h1 class="pr-10 xl:pr-0 font-medium text-6xl xl:mr-18 py-6 text-white">مقالات مختارة</h1>
+
+        <p class=" text-white pr-10 xl:pr-0 xl:mr-18 py-1 opacity-40">اعثر على محتوى مصمم حسب اهتماماتك</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 pt-5 container mx-auto lg:w-[80%]">
+            @for (things of data.posts.slice(3,6); track $index) {
+            <a [routerLink]="['/blog', things.slug]">
+                <app-card [image]="things.image" [category]="things.category" [readTime]="things.readTime"
+                    [title]="things.title" [excerpt]="things.excerpt" [avatar]="things.author.avatar"
+                    [name]="things.author.name" [date]="things.date">
+                </app-card>
+            </a>
+            }
+        </div>
+    </section>
+    <!-- bg-[linear-gradient(265deg,transparent,orange_20%,orange_60%,transparent)] -->
+    <section class="bg-black py-21 overflow-hidden">
+
+        <div
+            class="px-4 lg:w-[70%] xl:w-[55%] mx-auto container relative z-10 after:absolute after:z-5 after:bg-[linear-gradient(90deg,transparent,#ff59001f_40%,#ff59001f_60%,transparent)] after:content-[''] after:w-full after:h-30  after:bottom-88">
+            <div class="bg-[#161616] border-[1px] border-[#e4e4e41f] rounded-3xl py-7.5 px-6 sm:px-11 ">
+                <span class="bg-[#ff5900] p-4 rounded-2xl mx-auto block w-fit mt-4">
+                    <i class="fa-regular fa-envelope text-white text-3xl"></i>
+                </span>
+
+                <h3
+                    class="text-3xl bg-[linear-gradient(135deg,#f97316,#fbbf24)] bg-clip-text text-transparent text-center font-medium py-5">
+                    اشترك في نشرتنا الإخبارية</h3>
+                <p class="text-white opacity-50 text-[1rem] text-center">احصل على نصائح التصوير الحصرية ودروس جديدة
+                    مباشرة في بريدك الإلكتروني</p>
+
+                <div class="pt-8 sm:flex justify-center gap-2 items-center">
+                    <input
+                        class="border-[1px] border-[#e4e4e427] bg-black w-full sm:w-[60%] h-14 text-white/70 pr-5 rounded-[10px] text-[1.1rem]"
+                        type="email" name="email" placeholder="ادخل بريدك الكنروني">
+                    <button
+                        class="bg-[#ff5900] w-full sm:max-w-fit sm:px-8 py-3 rounded-[10px] text-white text-[1.1rem] font-medium mb-4 mt-3 cursor-pointer">اشترك
+                        الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

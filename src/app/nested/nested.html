@@ -1,0 +1,124 @@
+<main>
+
+    <section
+        [style]="{'background-image': 'linear-gradient(0deg,rgba(0,0,0,0.9),rgba(0,0,0,0.1)), url(' + post.image + ')'}"
+        class="bg-cover h-140 pt-5">
+        <nav
+            class="bg-[#0000004a] w-fit px-4 py-1.5 rounded-3xl flex gap-4 container mr-8 xl:mr-6 border border-white/20">
+            <span><i routerLink="/home"
+                    class="fa-solid fa-house text-[#ffffff93] hover:text-white transition-all duration-300 cursor-pointer"></i></span>
+            <span routerLink="/blog"
+                class="text-[#ffffff93] hover:text-white transition-all duration-300 cursor-pointer">المدونة</span>
+            <span class="text-[#ff8904]">{{post.category}}</span>
+        </nav>
+        <div class="pt-15 sm:pt-25 pr-8 xl:pr-62">
+            <div class="sm:flex items-center">
+                <a routerLink="/blog" [queryParams]="{category: post.category}">
+                    <button
+                        class="bg-[#ff6900] text-white px-4 py-2 rounded-3xl font-medium block mb-3 ml-3.5 cursor-pointer">{{post.category}}</button>
+                </a>
+                <span class="text-[#ffffff93] pr-1"><i
+                        class="fa-regular fa-calendar text-[#ffffff93] pl-5.5"></i>{{post.date}}</span>
+
+
+                <span class="text-[#ffffff93] pr-4.5"><i
+                        class="fa-regular fa-clock text-[#ffffff93] pl-6.5"></i>{{post.readTime}}</span>
+            </div>
+
+            <h3 class="text-white text-4xl md:text-6xl font-medium pt-5 md:max-w-[70%]">{{post.title}}</h3>
+
+            <div class="bg-[#00000023] border border-white/25 flex gap-4 items-center w-fit p-3.5 rounded-2xl mt-9">
+                <figure class="w-16">
+                    <img [src]="post.author.avatar" alt="" class="w-full rounded-full">
+                </figure>
+                <div>
+                    <p class="text-white font-medium text-[1.2rem]">{{post.author.name}}</p>
+                    <p class="text-white/60">{{post.author.role}}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="bg-black pt-11">
+
+        <div class="container px-4 md:px-0 mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="bg-[#ff6a0025] py-2 px-1 rounded-[12px] border border-[#ff6a0047]">
+                    <i class="fa-solid fa-camera text-[#ff6900] text-3xl"></i>
+                </span>
+                <h2 class="text-white font-medium text-3xl">{{detail.title2}}</h2>
+            </div>
+            <p class="text-white pb-1 pt-5.5 text-2xl">{{detail.content}}</p>
+            <p class="text-white pb-9 text-2xl">{{detail.description}}</p>
+            <div class="border border-white/30 rounded-2xl p-4.5">
+                <p class="text-white/60 text-[1.1rem] leading-11">{{post.content}}</p>
+                <p class="text-white/60 text-[1.1rem]">{{post.description}}</p>
+            </div>
+
+            <hr class="text-white/15 mt-25">
+        </div>
+
+    </section>
+
+    <section class="bg-black pt-9">
+        <div class="container px-4 pb-25 flex justify-between items-center mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="bg-[#ff6a0025] pt-3 pb-2 px-2 rounded-[12px] border border-[#ff6a0047]">
+                    <i class="fa-solid fa-photo-film text-[#ff6900] text-2xl"></i>
+                </span>
+
+                <div>
+                    <h3 class="text-white font-medium text-3xl">مقالات قد تعجبك</h3>
+                    <p class="text-white/40 pt-0.5">استكشف المزيد من المحتوى المميز</p>
+                </div>
+            </div>
+
+            <div class="hidden sm:block group/arrow">
+                <span class="text-[#ff6a00] cursor-pointer" routerLink="/blog">عرض الكل</span>
+                <span><i class="fa-solid fa-arrow-left-long mr-3.5 group-hover/arrow:translate-x-[-10px] transition-all duration-200"
+                        style="color: #ff6a00;"></i></span>
+            </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5  container mx-auto xl:w-[80%] pb-10">
+            @for (item of relatedPosts; track $index) {
+            <a [routerLink]="['/blog',item.slug]">
+                <article class="px-4 sm:px-0">
+                    <div class="card">
+                        <figure class="relative w-full">
+                            <img [src]="item.image" alt="" class="w-full object-cover h-55 rounded-t-3xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#161616] to-transparent"></div>
+
+                            <div
+                                class="absolute text-white/90 top-1/12 translate-x-[-20px] bg-[#ff6900] px-3 rounded-4xl">
+                                {{item.category}}</div>
+
+                        </figure>
+
+                        <div class="bg-[#161616cb] rounded-b-3xl py-6 px-5 border-[1px] border-[#1c1b1b]  h-[10.5rem]">
+
+                            <h3 class="text-white font-medium text-[1.2rem]">{{item.title}}</h3>
+
+                            <div class="flex items-center justify-between pt-6">
+                                <div class="flex gap-3">
+                                    <figure class="w-10">
+                                        <img [src]="item.author.avatar" alt="" class="w-full rounded-full">
+                                    </figure>
+                                    <span class="text-white/40">{{item.author.name}}</span>
+                                </div>
+                                <div>
+                                    <p class="text-white/40">{{item.readTime}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+            </a>
+            }
+        </div>
+    </section>
+
+</main>
